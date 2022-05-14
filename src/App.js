@@ -1,4 +1,6 @@
 import Die from './Die'
+import { useState } from 'react'
+import { nanoid } from 'nanoid'
 
 export default function App() {
   // Return an array of 10 random value betwee 1 and 6
