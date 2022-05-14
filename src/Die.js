@@ -1,6 +1,6 @@
 export default function Die(props) {
   return (
-    <div className="dice">
+    <div className="die">
       {props.value}
     </div>
   )
