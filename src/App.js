@@ -1,9 +1,19 @@
 import Die from './Die'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
 
 export default function App() {
   const [dice, setDice] = useState(allNewDice())
+  const [tenzies, setTenzies] = useState(false)
+
+  useEffect(() => {
+    // Return if all dice don't share the same value
+    if (!dice.every(die => die.value === dice[0].value)) return
+    // Return if all dice aren't held
+    if (!dice.every(die => die.isHeld)) return
+    setTenzies(true)
+    celebrate()
+  }, [dice])
 
   // Return an array of 10 random value betwee 1 and 6
   function allNewDice() {
