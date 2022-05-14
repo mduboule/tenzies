@@ -1,6 +1,7 @@
 body {
   background-color: #0B2434;
   margin: 0;
+  font-family: 'Karla', sans-serif;
 }
 
 #root {
@@ -11,12 +12,31 @@ body {
   main {
     background-color: #F5F5F5;
     border-radius: 10px;
+    padding: 25px;
     width: 320px;
     aspect-ratio: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+  }
+
+  h1 {
+    margin: 0;
+    color: #2B283A;
+  }
+
+  p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: normal;
+    font-size: 13px;
+    max-width: 235px;
+    letter-spacing: -0.03em;
+    line-height: 16px;
+    margin-top: 0;
+    color: #4A4E74;
+    text-align: center;
   }
 
   .dice {
@@ -47,7 +67,6 @@ body {
   button {
     background: #5035FF;
     color: white;
-    font-family: 'Karla';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
