@@ -1,6 +1,7 @@
 import Die from './Die'
 import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
+import Confetti from 'react-confetti'
 
 export default function App() {
   const [dice, setDice] = useState(allNewDice())
@@ -46,6 +47,12 @@ export default function App() {
   })
 
   function rollDice() {
+    // Reset game when over
+    if (tenzies) {
+      setDice(allNewDice())
+      setTenzies(false)
+    } 
+    // otherwise keep rolling the dice that aren't held
     setDice(oldDice => oldDice.map(die => ({
         ...die,
         value: die.isHeld ? die.value : Math.ceil(Math.random() * 6)
@@ -54,13 +61,16 @@ export default function App() {
   }
 
   return (
-    <main>
-      <h1 className="title">Tenzies</h1>
-      <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
-      <div className="dice">
-        {diceElement}
-      </div>
-      <button onClick={rollDice}>Roll</button>
-    </main>
+    <>
+      {tenzies && <Confetti recycle={false} numberOfPieces={500} />}
+      <main>
+        <h1 className="title">Tenzies</h1>
+        <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+        <div className="dice">
+          {diceElement}
+        </div>
+        <button onClick={rollDice}>{tenzies ? 'New Game' : 'Roll'}</button>
+      </main>
+    </>
   )
 }
