@@ -4,8 +4,16 @@ import { nanoid } from 'nanoid'
 import Confetti from 'react-confetti'
 
 export default function App() {
-  const [dice, setDice] = useState(allNewDice())
+  const LOCAL_STORAGE_KEY = 'tenzies.dice'
   const [tenzies, setTenzies] = useState(false)
+  const [dice, setDice] = useState(
+    JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || allNewDice()
+  )
+
+  // Write local storage
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(dice))
+  }, [dice])
 
   useEffect(() => {
     // Return if all dice don't share the same value
@@ -13,7 +21,6 @@ export default function App() {
     // Return if all dice aren't held
     if (!dice.every(die => die.isHeld)) return
     setTenzies(true)
-    celebrate()
   }, [dice])
 
   // Return an array of 10 random value betwee 1 and 6
