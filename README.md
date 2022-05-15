@@ -1,6 +1,6 @@
 # Tenzies
 
-Based off the material presented by Bob Ziroll in his 2022 [https://www.youtube.com/watch?v=bMknfKXIFA8](Tutorial for React JavaScript Library). 
+Based off the material presented by Bob Ziroll in his 2022 [Tutorial for React JavaScript Library](https://www.youtube.com/watch?v=bMknfKXIFA8).
 Nothing drastically different from the version presented in his lesson except for a few different
 small things:
 - use SCSS and write cleaner styles
@@ -11,4 +11,4 @@ small things:
 
 Nothing crazy though. Really enjoyed this class, thanks Bob Ziroll!
 
-Preview this simple app [https://mduboule.github.io/tenzies/](here).
+Preview this simple app [here](https://mduboule.github.io/tenzies/).
